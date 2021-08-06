@@ -1,34 +1,34 @@
-package com.digitalinnovationone.bookadress.entity;
+package com.digitalinnovationone.bookadress.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
-@Entity
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Adress {
+public class AdressDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @NotEmpty
+    @Size(min = 2, max = 50)
     private String local;
 
-    @Column(nullable = false)
+    @NotEmpty
     private Integer numberBookCase;
 
-    @Column(nullable = false)
+    @NotEmpty
     private Integer numberDividerUpWards;
 
-    @Column(nullable = false)
+    @NotEmpty
     private Integer numberDividerLeftToRight;
 
+    @Size(min = 2, max = 150)
     private String reference;
 }
